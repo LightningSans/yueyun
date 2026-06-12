@@ -186,21 +186,7 @@ cluadestack/
 
 ### 1. 创建数据库
 
-执行建表脚本：
-
-```sql
-SOURCE yueyun_fronted/src/main/resources/init.sql;
-```
-
-或登录 MySQL 后直接执行：
-
-```sql
-CREATE DATABASE IF NOT EXISTS `yueyun`
-  DEFAULT CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-USE `yueyun`;
--- 然后执行 init.sql 中的建表语句
-```
+数据库表结构文件位于 db/init.sql，请在你的 MySQL 中执行该文件以创建所需的表结构
 
 ### 2. 配置后端（重要）
 
