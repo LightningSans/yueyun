@@ -1,0 +1,31 @@
+<view class="page">
+  <view class="header"><text class="h-title">配送任务</text></view>
+  <scroll-view scroll-x class="task-tabs" enhanced>
+    <view wx:for="{{tabs}}" wx:key="key" class="task-tab {{item.key === activeTab ? 'active' : ''}}" bindtap="switchTab" data-key="{{item.key}}">
+      <text>{{item.label}}</text>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y class="content" refresher-enabled bindrefresherrefresh="onRefresh" refresher-triggered="{{refreshing}}" enhanced>
+    <view class="delivery-list">
+      <view wx:for="{{tasks}}" wx:key="id" class="delivery-card card" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="dc-top">
+          <text class="dc-order">#{{item.orderNo}}</text>
+          <text class="tag-status tag-{{item.statusTag}}">{{item.statusText}}</text>
+        </view>
+        <view class="address-row">
+          <text>📍</text>
+          <text class="addr-text">{{item.deliveryAddress}}</text>
+        </view>
+        <view class="meta">
+          <text>{{item.deliveryName}} {{item.deliveryPhone}}</text>
+          <text>¥{{item.payAmountText}}</text>
+        </view>
+      </view>
+      <view wx:if="{{!tasks.length && !loading}}" class="empty-state">
+        <text class="empty-icon">📋</text>
+        <text wx:if="{{!activeTab}}">暂无配送任务</text>
+        <text wx:else>暂无"{{curTabLabel}}"任务</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

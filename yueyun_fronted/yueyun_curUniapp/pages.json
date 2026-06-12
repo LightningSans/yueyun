@@ -1,0 +1,50 @@
+{
+  "pages": [
+    {"path": "pages/Login/Login", "style": {"navigationBarTitleText": "登录"}},
+    {"path": "pages/Dashboard/Dashboard", "style": {"navigationBarTitleText": "工作台"}},
+    {"path": "pages/TaskList/TaskList", "style": {"navigationBarTitleText": "配送任务"}},
+    {"path": "pages/TaskDetail/TaskDetail", "style": {"navigationBarTitleText": "任务详情"}},
+    {"path": "pages/History/History", "style": {"navigationBarTitleText": "历史配送"}},
+    {"path": "pages/Profile/Profile", "style": {"navigationBarTitleText": "我的"}},
+    {"path": "pages/Diagnostic/Diagnostic", "style": {"navigationBarTitleText": "悦选配送"}}
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "悦选配送",
+    "navigationBarBackgroundColor": "#1C2333",
+    "backgroundColor": "#0e1217"
+  },
+  "tabBar": {
+    "color": "#64748B",
+    "selectedColor": "#3B82F6",
+    "backgroundColor": "#161B22",
+    "borderStyle": "black",
+    "height": 56,
+    "list": [
+      {
+        "pagePath": "pages/Dashboard/Dashboard",
+        "text": "工作台",
+        "iconPath": "static/tabbar/dashboard.png",
+        "selectedIconPath": "static/tabbar/dashboard-active.png"
+      },
+      {
+        "pagePath": "pages/TaskList/TaskList",
+        "text": "配送任务",
+        "iconPath": "static/tabbar/tasks.png",
+        "selectedIconPath": "static/tabbar/tasks-active.png"
+      },
+      {
+        "pagePath": "pages/History/History",
+        "text": "历史配送",
+        "iconPath": "static/tabbar/history.png",
+        "selectedIconPath": "static/tabbar/history-active.png"
+      },
+      {
+        "pagePath": "pages/Profile/Profile",
+        "text": "我的",
+        "iconPath": "static/tabbar/profile.png",
+        "selectedIconPath": "static/tabbar/profile-active.png"
+      }
+    ]
+  }
+}

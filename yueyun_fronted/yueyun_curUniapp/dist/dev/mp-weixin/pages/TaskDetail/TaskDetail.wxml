@@ -1,0 +1,67 @@
+<view class="page">
+  <view class="header">
+    <view class="back" bindtap="goBack">‹</view>
+    <text class="h-title">任务详情</text>
+    <view style="width:36px"></view>
+  </view>
+  <scroll-view scroll-y class="content" wx:if="{{task}}" enhanced>
+    <view class="detail-content">
+      <view class="info-card card">
+        <view class="row"><text class="row-label">订单号</text><text class="row-value mono">{{task.orderNo}}</text></view>
+        <view class="row"><text class="row-label">状态</text><text class="tag-status tag-{{task.statusTag}}">{{task.statusText}}</text></view>
+        <view class="row"><text class="row-label">金额</text><text class="row-value highlight">¥{{task.payAmountText}}</text></view>
+        <view class="row"><text class="row-label">时间</text><text class="row-value">{{task.createTime}}</text></view>
+      </view>
+      <view class="info-card card">
+        <view class="row"><text class="row-label">取货地址</text><text class="row-value">{{task.pickupAddress}}</text></view>
+        <view class="row">
+          <text class="row-label">取货联系</text>
+          <text class="row-value highlight" bindtap="callPhone" data-phone="{{task.pickupPhone}}">{{task.pickupContact}} {{task.pickupPhone}}</text>
+        </view>
+        <view class="row"><text class="row-label">收货地址</text><text class="row-value">{{task.deliveryAddress}}</text></view>
+        <view class="row">
+          <text class="row-label">收货人</text>
+          <text class="row-value highlight" bindtap="callPhone" data-phone="{{task.deliveryPhone}}">{{task.deliveryName}} {{task.deliveryPhone}}</text>
+        </view>
+      </view>
+      <view class="info-card card" wx:if="{{task.items && task.items.length}}">
+        <view class="section-label">商品明细</view>
+        <view class="row" wx:for="{{task.items}}" wx:key="index">
+          <text class="row-value" style="flex:1;">{{item.productName}}</text>
+          <text class="row-value" style="text-align:right;">x{{item.quantity}} ¥{{item.priceText}}</text>
+        </view>
+      </view>
+      <view class="info-card card">
+        <view class="section-label">配送进度</view>
+        <view class="status-timeline">
+          <view class="tl-step {{stepCls0}}">
+            <view class="tl-dot"></view><view class="tl-line"></view>
+            <view class="tl-info"><text class="tl-title">已指派</text><text class="tl-desc">等待配送员取货</text></view>
+          </view>
+          <view class="tl-step {{stepCls1}}">
+            <view class="tl-dot"></view><view class="tl-line"></view>
+            <view class="tl-info"><text class="tl-title">配送中</text><text class="tl-desc">正在派送至目的地</text></view>
+          </view>
+          <view class="tl-step {{stepCls2}}">
+            <view class="tl-dot"></view>
+            <view class="tl-info"><text class="tl-title">已送达</text><text class="tl-desc">订单完成</text></view>
+          </view>
+        </view>
+      </view>
+      <view class="action-bar">
+        <view wx:if="{{showPickupBtn}}" class="btn-action primary" bindtap="doPickup">📦 确认取货</view>
+        <view wx:if="{{showDeliverBtn}}" class="btn-action success" bindtap="doDeliver">✅ 确认送达</view>
+        <view wx:if="{{showCallBtn}}" class="btn-action outline" bindtap="callPhone" data-phone="{{task.deliveryPhone}}">📞 联系收货人</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view wx:if="{{!task && !loadError}}" class="loading-state">
+    <view class="loading-spinner"></view>
+    <text style="color:#64748B;font-size:13px;margin-top:8px;">加载中...</text>
+  </view>
+  <view wx:if="{{loadError}}" class="loading-state">
+    <text style="font-size:36px;opacity:.3;">😵</text>
+    <text style="color:#64748B;font-size:13px;margin-top:8px;">{{loadError}}</text>
+    <view class="btn-action outline" style="margin-top:16px;width:200px;" bindtap="reload">重新加载</view>
+  </view>
+</view>

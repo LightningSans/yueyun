@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="header"><text class="h-title">历史配送</text></view>
+  <scroll-view scroll-y class="content" bindscrolltolower="loadMore" refresher-enabled bindrefresherrefresh="onRefresh" refresher-triggered="{{refreshing}}" enhanced>
+    <view class="history-list">
+      <view wx:for="{{tasks}}" wx:key="id" class="delivery-card card" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="dc-top">
+          <text class="dc-order">#{{item.orderNo}}</text>
+          <text class="tag-status {{item.statusTagClass}}">{{item.statusText}}</text>
+        </view>
+        <view class="address-row">
+          <text>📍</text>
+          <text class="addr-text">{{item.deliveryAddress}}</text>
+        </view>
+        <view class="meta">
+          <text>{{item.deliveryName}}</text>
+          <text>¥{{item.payAmountText}}</text>
+        </view>
+      </view>
+      <view wx:if="{{loading && tasks.length}}" class="load-more">
+        <view class="loading-spinner"></view>
+        <text>加载中...</text>
+      </view>
+      <view wx:if="{{noMore && tasks.length}}" class="load-more">
+        <text style="color:#475569;">— 没有更多了 —</text>
+      </view>
+      <view wx:if="{{!tasks.length && !loading}}" class="empty-state">
+        <text class="empty-icon">📋</text>
+        <text>暂无配送记录</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

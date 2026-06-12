@@ -1,0 +1,38 @@
+.page { display: flex; flex-direction: column; height: 100vh; background: #0E1217; }
+.header { height: 52px; display: flex; align-items: center; padding: 0 16px; }
+.h-title { font-size: 18px; font-weight: 700; flex: 1; text-align: center; color: #F1F5F9; }
+.content { flex: 1; padding: 0 16px; }
+.profile-card { display: flex; align-items: center; gap: 14px; padding: 20px; margin-bottom: 12px; }
+.avatar-lg { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg,#3B82F6,#8B5CF6); display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+.p-info { flex: 1; }
+.p-name { display: block; font-size: 18px; font-weight: 700; color: #F1F5F9; }
+.p-phone { display: block; font-size: 13px; color: #64748B; margin-top: 2px; }
+.p-status { display: inline-block; font-size: 11px; margin-top: 4px; }
+.p-status.on { color: #22C55E; }
+.p-status.off { color: #EF4444; }
+.profile-stats { display: flex; margin-bottom: 12px; background: #1C2333; border: 1px solid #2D3548; border-radius: 12px; overflow: hidden; }
+.p-stat { flex: 1; text-align: center; padding: 14px 4px; border-right: 1px solid #2D3548; }
+.p-stat:last-child { border-right: none; }
+.p-num { display: block; font-size: 18px; font-weight: 700; }
+.p-num.green { color: #22C55E; }
+.p-num.blue { color: #3B82F6; }
+.p-num.yellow { color: #EAB308; }
+.p-num.purple { color: #8B5CF6; }
+.p-label { display: block; font-size: 10px; color: #64748B; margin-top: 2px; }
+.income-card { display: flex; padding: 16px; margin-bottom: 12px; }
+.income-item { flex: 1; text-align: center; }
+.income-label { display: block; font-size: 11px; color: #64748B; margin-bottom: 4px; }
+.income-value { display: block; font-size: 16px; font-weight: 700; color: #F1F5F9; }
+.income-value.green { color: #22C55E; }
+.income-value.highlight { color: #3B82F6; }
+.income-divider { width: 1px; background: #2D3548; margin: 0 12px; }
+.profile-menu { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; }
+.menu-item { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #1C2333; border: 1px solid #2D3548; border-radius: 8px; }
+.menu-icon { width: 20px; text-align: center; font-size: 16px; }
+.menu-icon.logout { color: #EF4444; }
+.menu-label { flex: 1; font-size: 14px; color: #F1F5F9; }
+.menu-label.logout { color: #EF4444; }
+.menu-right { font-size: 13px; color: #64748B; }
+.menu-arrow { color: #475569; font-size: 12px; }
+.menu-arrow.logout { color: #EF4444; }
+.card { background: #1C2333; border: 1px solid #2D3548; border-radius: 12px; }

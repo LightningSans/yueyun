@@ -1,0 +1,29 @@
+<view class="login-page">
+  <view class="login-brand">
+    <view class="logo-icon">🚚</view>
+    <text class="brand-title">悦选配送</text>
+    <text class="brand-sub">配送员工作台 · 高效交付每一单</text>
+  </view>
+  <view class="login-form">
+    <view class="field">
+      <text class="field-icon">👤</text>
+      <input class="field-input" placeholder="配送员账号" value="{{username}}" bindinput="onUsernameInput" />
+    </view>
+    <view class="field">
+      <text class="field-icon">🔒</text>
+      <input class="field-input" placeholder="登录密码" password="{{true}}" value="{{password}}" bindinput="onPasswordInput" />
+    </view>
+    <view class="btn-login" bindtap="handleLogin" wx:if="{{!wxLoading}}">
+      <text>登 录</text>
+    </view>
+    <view class="btn-wx-login" bindtap="handleWxLogin" wx:if="{{wxLoginEnabled && !wxLoading}}">
+      <text class="wx-icon">💬</text>
+      <text>微信一键登录</text>
+    </view>
+    <view class="btn-login" wx:if="{{wxLoading}}" style="opacity:0.6">
+      <text>登录中...</text>
+    </view>
+    <text class="error-text" wx:if="{{errorMsg}}">{{errorMsg}}</text>
+    <text class="version-text">版本 v1.0.0 · 悦选配送员端</text>
+  </view>
+</view>

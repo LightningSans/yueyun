@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="header"><text class="h-title">我的</text><view style="width:36px"></view></view>
+  <scroll-view scroll-y class="content" enhanced>
+    <view class="profile-card card">
+      <view class="avatar-lg">🚚</view>
+      <view class="p-info">
+        <text class="p-name">{{courierName}}</text>
+        <text class="p-phone">{{courierPhone}}</text>
+        <text wx:if="{{isActive}}" class="p-status on">● 在岗</text>
+        <text wx:else class="p-status off">○ 已禁用</text>
+      </view>
+    </view>
+    <view class="profile-stats">
+      <view class="p-stat"><text class="p-num green">{{stats.totalOrders || 0}}</text><text class="p-label">总配送</text></view>
+      <view class="p-stat"><text class="p-num blue">{{stats.todayOrders || 0}}</text><text class="p-label">今日单</text></view>
+      <view class="p-stat"><text class="p-num yellow">{{praiseRateText}}</text><text class="p-label">好评率</text></view>
+      <view class="p-stat"><text class="p-num purple">{{ratingText}}</text><text class="p-label">评分</text></view>
+    </view>
+    <view class="income-card card">
+      <view class="income-item"><text class="income-label">今日收入</text><text class="income-value green">¥{{todayIncomeText}}</text></view>
+      <view class="income-divider"></view>
+      <view class="income-item"><text class="income-label">本月收入</text><text class="income-value">¥{{monthIncomeText}}</text></view>
+      <view class="income-divider"></view>
+      <view class="income-item"><text class="income-label">可提现</text><text class="income-value highlight">¥{{balanceText}}</text></view>
+    </view>
+    <view class="profile-menu">
+      <view class="menu-item" bindtap="goHist"><text class="menu-icon">📋</text><text class="menu-label">历史配送</text><text class="menu-arrow">›</text></view>
+      <view class="menu-item" bindtap="goIncome"><text class="menu-icon">💰</text><text class="menu-label">收入明细</text><text class="menu-right">¥{{monthIncomeText}}</text><text class="menu-arrow">›</text></view>
+      <view class="menu-item" bindtap="goAbout"><text class="menu-icon">ℹ️</text><text class="menu-label">关于</text><text class="menu-right" style="font-size:11px;">v1.0.0</text><text class="menu-arrow">›</text></view>
+      <view class="menu-item" style="margin-top:4px;border-color:rgba(239,68,68,.15);" bindtap="handleLogout"><text class="menu-icon logout">🚪</text><text class="menu-label logout">退出登录</text><text class="menu-arrow logout">›</text></view>
+    </view>
+  </scroll-view>
+</view>

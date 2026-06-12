@@ -1,0 +1,37 @@
+.page { display: flex; flex-direction: column; height: 100vh; background: #0E1217; }
+.header { height: 52px; display: flex; align-items: center; padding: 0 16px; }
+.h-title { font-size: 18px; font-weight: 700; flex: 1; text-align: center; color: #F1F5F9; }
+.content { flex: 1; }
+.dash-top { padding: 0 16px 16px; }
+.dash-greeting { display: flex; align-items: center; gap: 12px; padding: 14px 16px; margin-bottom: 12px; }
+.avatar { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg,#3B82F6,#8B5CF6); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.info { flex: 1; }
+.name { font-size: 16px; font-weight: 600; display: block; color: #F1F5F9; }
+.status { font-size: 12px; color: #22C55E; display: flex; align-items: center; gap: 4px; }
+.pulse { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; }
+.dash-stats { display: flex; gap: 8px; margin-bottom: 12px; }
+.dash-stat { flex: 1; padding: 14px 8px; text-align: center; }
+.num { display: block; font-size: 24px; font-weight: 700; }
+.num.accent-blue { color: #3B82F6; }
+.num.accent-green { color: #22C55E; }
+.num.accent-yellow { color: #EAB308; }
+.label { display: block; font-size: 11px; color: #64748B; margin-top: 2px; }
+.quick-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+.quick-action { width: calc(50% - 4px); display: flex; align-items: center; gap: 10px; padding: 12px; background: #1C2333; border: 1px solid #2D3548; border-radius: 8px; box-sizing: border-box; }
+.quick-action:active { background: #252D3F; }
+.qa-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.qa-info { flex: 1; }
+.qa-title { font-size: 13px; font-weight: 500; display: block; color: #F1F5F9; }
+.qa-sub { font-size: 11px; color: #64748B; display: block; }
+.qa-arrow { color: #475569; font-size: 12px; }
+.dash-section-header { display: flex; justify-content: space-between; align-items: center; padding: 4px 16px 10px; }
+.dash-sec-title { font-size: 14px; font-weight: 600; color: #94A3B8; letter-spacing: .5px; }
+.dash-sec-more { font-size: 12px; color: #3B82F6; }
+.delivery-list { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+.delivery-card { padding: 14px; }
+.dc-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.dc-order { font-size: 13px; font-weight: 500; color: #F1F5F9; }
+.address-row { display: flex; gap: 6px; font-size: 13px; margin-bottom: 6px; }
+.addr-text { color: #94A3B8; line-height: 1.4; flex: 1; }
+.meta { display: flex; gap: 16px; font-size: 11px; color: #475569; }
+.card { background: #1C2333; border: 1px solid #2D3548; border-radius: 12px; }

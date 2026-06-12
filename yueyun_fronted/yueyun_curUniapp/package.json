@@ -1,0 +1,31 @@
+{
+  "name": "yueyun-courier",
+  "version": "1.0.0",
+  "description": "悦选配送 — 配送员端（UniApp 微信小程序）",
+  "private": true,
+  "scripts": {
+    "dev:mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch",
+    "build:mp-weixin": "cross-env NODE_ENV=production UNI_PLATFORM=mp-weixin vue-cli-service uni-build",
+    "info": "node -e \"console.log(require('./node_modules/@dcloudio/vue-cli-plugin-uni/package.json').version)\""
+  },
+  "dependencies": {
+    "vue": "2.7.16",
+    "vuex": "3.6.2"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^2.0.0",
+    "@dcloudio/uni-mp-weixin": "^2.0.0",
+    "@dcloudio/uni-template-compiler": "^2.0.0",
+    "@dcloudio/vue-cli-plugin-uni": "^2.0.0",
+    "@dcloudio/webpack-uni-mp-loader": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "vue-template-compiler": "2.7.16"
+  },
+  "browserslist": [
+    "Android >= 4.4",
+    "ios >= 8"
+  ],
+  "uni-app": {
+    "scripts": {}
+  }
+}

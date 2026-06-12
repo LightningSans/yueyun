@@ -1,0 +1,14 @@
+.page { display: flex; flex-direction: column; height: 100vh; background: #0E1217; }
+.header { height: 52px; display: flex; align-items: center; padding: 0 16px; }
+.h-title { font-size: 18px; font-weight: 700; flex: 1; text-align: center; color: #F1F5F9; }
+.content { flex: 1; }
+.history-list { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+.delivery-card { padding: 14px; }
+.dc-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.dc-order { font-size: 13px; font-weight: 500; color: #F1F5F9; }
+.address-row { display: flex; gap: 6px; font-size: 13px; margin-bottom: 6px; }
+.addr-text { color: #94A3B8; line-height: 1.4; flex: 1; }
+.meta { display: flex; gap: 12px; font-size: 11px; color: #475569; }
+.load-more { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 20px 0; color: #64748B; font-size: 12px; }
+.loading-spinner { width: 20px; height: 20px; border: 2px solid #2D3548; border-top-color: #3B82F6; border-radius: 50%; animation: spin .8s linear infinite; }
+.card { background: #1C2333; border: 1px solid #2D3548; border-radius: 12px; }

@@ -1,0 +1,86 @@
+<view class="page">
+  <view class="header"><text class="h-title">工作台</text></view>
+  <scroll-view scroll-y class="content" enhanced>
+    <view class="dash-top">
+      <view class="dash-greeting card">
+        <view class="avatar">🚚</view>
+        <view class="info">
+          <text class="name">{{courierName}}</text>
+          <text class="status"><text class="pulse"></text> 今日已接单 · 在线</text>
+        </view>
+      </view>
+      <view class="dash-stats">
+        <view class="dash-stat card" bindtap="goTab">
+          <text class="num accent-blue">{{stats.todayOrders || 0}}</text>
+          <text class="label">今日单量</text>
+        </view>
+        <view class="dash-stat card">
+          <text class="num accent-green">{{stats.completedOrders || 0}}</text>
+          <text class="label">已完成</text>
+        </view>
+        <view class="dash-stat card" bindtap="goTab">
+          <text class="num accent-yellow">{{stats.inProgressOrders || 0}}</text>
+          <text class="label">进行中</text>
+        </view>
+      </view>
+      <view class="quick-actions">
+        <view class="quick-action" bindtap="goTab">
+          <view class="qa-icon" style="background:rgba(59,130,246,.15);"><text style="color:#3B82F6;">📦</text></view>
+          <view class="qa-info">
+            <text class="qa-title">待取货</text>
+            <text class="qa-sub">{{pendingCount}} 单待处理</text>
+          </view>
+          <text class="qa-arrow">›</text>
+        </view>
+        <view class="quick-action" bindtap="goTab">
+          <view class="qa-icon" style="background:rgba(34,197,94,.15);"><text style="color:#22C55E;">🚚</text></view>
+          <view class="qa-info">
+            <text class="qa-title">配送中</text>
+            <text class="qa-sub">{{transitCount}} 单进行中</text>
+          </view>
+          <text class="qa-arrow">›</text>
+        </view>
+        <view class="quick-action" bindtap="goHist">
+          <view class="qa-icon" style="background:rgba(139,92,246,.15);"><text style="color:#8B5CF6;">📋</text></view>
+          <view class="qa-info">
+            <text class="qa-title">历史记录</text>
+            <text class="qa-sub">查看已完成配送</text>
+          </view>
+          <text class="qa-arrow">›</text>
+        </view>
+        <view class="quick-action" bindtap="goProfile">
+          <view class="qa-icon" style="background:rgba(6,182,212,.15);"><text style="color:#06B6D4;">👤</text></view>
+          <view class="qa-info">
+            <text class="qa-title">我的</text>
+            <text class="qa-sub">今日收入 ¥{{todayIncomeText}}</text>
+          </view>
+          <text class="qa-arrow">›</text>
+        </view>
+      </view>
+    </view>
+    <view class="dash-section-header">
+      <text class="dash-sec-title">最近配送任务</text>
+      <text class="dash-sec-more" bindtap="goTab">查看全部</text>
+    </view>
+    <view class="delivery-list">
+      <view wx:for="{{recentTasks}}" wx:key="id" class="delivery-card card" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="dc-top">
+          <text class="dc-order">#{{item.orderNo}}</text>
+          <text class="tag-status tag-{{item.statusTag}}">{{item.statusText}}</text>
+        </view>
+        <view class="address-row">
+          <text>📍</text>
+          <text class="addr-text">{{item.deliveryAddress}}</text>
+        </view>
+        <view class="meta">
+          <text>{{item.deliveryName}} {{item.deliveryPhone}}</text>
+          <text>¥{{item.payAmountText}}</text>
+        </view>
+      </view>
+      <view wx:if="{{!recentTasks.length}}" class="empty-state">
+        <text class="empty-icon">📋</text>
+        <text>暂无配送任务</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

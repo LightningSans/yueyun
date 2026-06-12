@@ -1,0 +1,80 @@
+# ════════════════════════════════════════════════════════════
+#  悦选商城 — 开发环境配置模板
+#  使用方式：复制此文件为 application-dev.yml，填入你的配置
+#  ⚠  application-dev.yml 已在 .gitignore 中，不会被提交
+# ════════════════════════════════════════════════════════════
+
+spring:
+  # ─── 数据源（MySQL 8.0 + HikariCP） ───
+  datasource:
+    url: jdbc:mysql://localhost:3306/yueyun?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: ${DB_PASSWORD:your_password_here}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 10000
+      max-lifetime: 1200000
+
+  # ─── Redis 7.x（本地） ───
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ${REDIS_PASSWORD:your_password_here}
+      database: 0
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 16
+          max-idle: 8
+          min-idle: 4
+          max-wait: -1ms
+
+# ─── MyBatis-Plus 配置 ───
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: AUTO
+      logic-delete-field: is_deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.yuexuan.mall.entity
+
+# ─── JWT 配置 ───
+jwt:
+  secret: ${JWT_SECRET:your_jwt_secret_here}
+  expiration: 10800000        # 3 小时（毫秒）
+  token-head: Bearer
+
+# ─── SpringDoc OpenAPI (Swagger) ───
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+  packages-to-scan: com.yuexuan.mall.controller
+
+# ─── 阿里云 OSS 配置（密钥从环境变量读取） ───
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    access-key-id: ${OSS_ACCESS_KEY_ID}
+    access-key-secret: ${OSS_ACCESS_KEY_SECRET}
+    bucket-name: yueyun-e
+    file-host: images
+
+# ─── 微信小程序配置（配送员端使用） ───
+wechat:
+  mini-program:
+    app-id: ${WECHAT_APP_ID:}
+    app-secret: ${WECHAT_APP_SECRET:}

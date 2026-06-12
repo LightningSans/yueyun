@@ -1,0 +1,15 @@
+.page { display: flex; flex-direction: column; height: 100vh; background: #0E1217; }
+.header { height: 52px; display: flex; align-items: center; padding: 0 16px; }
+.h-title { font-size: 18px; font-weight: 700; flex: 1; text-align: center; color: #F1F5F9; }
+.task-tabs { display: flex; gap: 6px; padding: 12px 16px 8px; white-space: nowrap; }
+.task-tab { padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 500; background: #1C2333; color: #94A3B8; border: 1px solid #2D3548; flex-shrink: 0; }
+.task-tab.active { background: #3B82F6; color: #fff; border-color: #3B82F6; }
+.content { flex: 1; }
+.delivery-list { padding: 0 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+.delivery-card { padding: 14px; }
+.dc-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.dc-order { font-size: 13px; font-weight: 500; color: #F1F5F9; }
+.address-row { display: flex; gap: 6px; font-size: 13px; margin-bottom: 6px; }
+.addr-text { color: #94A3B8; line-height: 1.4; flex: 1; }
+.meta { display: flex; gap: 16px; font-size: 11px; color: #475569; }
+.card { background: #1C2333; border: 1px solid #2D3548; border-radius: 12px; }
